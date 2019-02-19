@@ -5,7 +5,7 @@
 
 {% block styles%}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('.index')}}">
 {% endblock %}
 
 <!-- Content block -->
@@ -20,20 +20,28 @@
 </div>
 
 <!-- Popular movie -->
-<h3> Popular Movies</h3>
-<ul>
-    {{ macro.displayNewsList(popular)}}
-</ul>
-<!-- Upcoming movie  -->
-<h3> Upcoming Movies </h3>
-<ul>
-    {{ macro.displayNewsList(upcoming)}}
-</ul>
-<!-- Now showing movie -->
-<h3>Now Showing</h3>
-<ul>
-    {{ macro.displayNewsList(now_showing)}}
-</ul>
+<div class="container">
+<div class="row">
+  <div class="col-md-4" id='tec'>
+    <h3> Technology News</h3>
+    <ul>
+      {{ macro.displayNewsList(technology)}}
+    </ul>
+  </div>
 
+  <div class="col-md-4" id='gen'>
+    <h3> General News </h3>
+    <ul>
+      {{ macro.displayNewsList(general)}}
+    </ul>
+  </div>
 
+  <div class="col-md-4" id='ent'>
+    <h3>Entertainment</h3>
+    <ul>
+      {{ macro.displayNewsList(entertainment)}}
+    </ul>
+  </div>
+</div>
+</div>
 {% endblock%}
