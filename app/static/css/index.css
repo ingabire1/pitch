@@ -1,9 +1,18 @@
+img{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:150px;
+}
+#tec,#gen,#ent{
+  border-radius: 5%;
+  margin-top: 100px;
+}
 #tec{
-  background-color: blue;
+  background-color: lightblue;
 }
 #gen{
-  background-color: green;
+  background-color: lightgreen;
 }
 #ent{
-  background-color: yellow;
+  background-color: lightyellow;
 }

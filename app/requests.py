@@ -20,7 +20,7 @@ def get_news(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(category,api_key)
+    get_news_url = 'https://newsapi.org/v2/sources?category={}&apiKey=d51bd896c92448e786bb80dc54e08fca'.format(category)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -60,12 +60,13 @@ def process_results(news_list):
 
     return news_results
 
-def get_newsd(id):
+def get_newsd(name):
     '''
     Function that gets the json response to our url request
     '''
-    get_arti_url = arti_url.format(id,api_key)
-
+    get_arti_url = 'https://newsapi.org/v2/everything?sources={}&apiKey=d51bd896c92448e786bb80dc54e08fca'.format(name)
+    # source='news.name'
+    print(get_arti_url)
     with urllib.request.urlopen(get_arti_url) as url:
         get_arti_data = url.read()
         get_arti_response = json.loads(get_arti_data)
@@ -74,59 +75,38 @@ def get_newsd(id):
         # arti_results = None
 
         if get_arti_response['articles']:
-            arti_results_list = get_arti_response['articles']
-            # print(arti_results_list)
+            arti_results_list = process_arti(get_arti_response['articles'])
+            # arti_results_list
+        print(arti_results_list)
 
-            return arti_results_list
-            # arti_results = None
-            # arti_results = []
-            # for arti_item in arti_results_list:
-            #     id = arti_item.get('id')
-            #     source = arti_item.get('source')
-            #     title = arti_item.get('title')
-            #     poster = arti_item.get('urlToImage')
-            #     description = arti_item.get('description')
-            #     publishedAt = arti_item.get('publishedAt')
-            #     content = arti_item.get('content')
-            #
-            #     if id:
-            #         arti_object = Arti(id,source,title,poster,description,publishedAt,content)
-            #         arti_results.append(arti_object)
-            #         print(arti_results)
-            #         return arti_results
-            #         print(arti_results)
+        return arti_results_list
+            
+def process_arti(arti_list):
+    '''
+    Function  that processes the sources result and transform them to a list of Objects
 
-            # arti_results = process_arti(arti_results_list)
+    Args:
+        arti_list: A list of dictionaries that contain articles details
 
+    Returns :
+        arti_results: A list of articles objects
+    '''
+    arti_results = []
 
-    # return arti_results_list
+    for arti_item in arti_list:
+        id = arti_item.get('id')
+        source = arti_item.get('source')
+        title = arti_item.get('title')
+        poster = arti_item.get('urlToImage')
+        description = arti_item.get('description')
+        publishedAt = arti_item.get('publishedAt')
+        content = arti_item.get('content')
 
-# def process_arti(arti_list):
-#     '''
-#     Function  that processes the sources result and transform them to a list of Objects
-#
-#     Args:
-#         arti_list: A list of dictionaries that contain articles details
-#
-#     Returns :
-#         arti_results: A list of articles objects
-#     '''
-#     arti_results = []
-#
-#     for arti_item in arti_list:
-#         id = arti_item.get('id')
-#         source = arti_item.get('source')
-#         title = arti_item.get('title')
-#         poster = arti_item.get('urlToImage')
-#         description = arti_item.get('description')
-#         publishedAt = arti_item.get('publishedAt')
-#         content = arti_item.get('content')
-#
-#         if id:
-#             arti_object = Arti(id,source,title,poster,description,publishedAt,content)
-#             arti_results.append(arti_object)
-#
-#     return arti_results
+        # if poster:
+        arti_object = Arti(id,source,title,poster,description,publishedAt,content)
+        arti_results.append(arti_object)
+
+    return arti_results
 
 def search_news(news_title):
     search_news_url = 'https://newsapi.org/v2/sources?category&apiKey={}&query={}'.format(api_key,news_title)

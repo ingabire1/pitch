@@ -16,9 +16,9 @@ class Arti:
     News class to define Articles Objects
     '''
 
-    def __init__(self,id,source,title,poster,description,publishedAt,content):
+    def __init__(self,id,name,title,poster,description,publishedAt,content):
         self.id = id
-        self.source = source
+        self.name = name
         self.title = title
         self.poster = poster
         self.description = description

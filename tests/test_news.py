@@ -10,7 +10,7 @@ class NewsTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_news = News(1234,'Python Must Be Crazy','A thrilling new Python Series','https://image.tmdb.org/t/p/w500/khsjha27hbs',8.5,129993)
+        self.new_news = News('abc-news-au','ABC News (AU)','Australia s most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.','"http://www.abc.net.au/news','en','au')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_news,News))
