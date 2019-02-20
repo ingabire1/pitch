@@ -24,14 +24,6 @@ def index():
     else:
         return render_template('index.html', title = title,technology = technology_news,general = general_news, entertainment = entertainment_news )
 
-# @main.route('/news/<title>')
-# def news(title):
-#     '''
-#     View news page function that returns the news details page and its data
-#     '''
-#
-#     return render_template('news.html')
-
 @main.route('/news/<id>')
 def newsd(id):
 
@@ -48,6 +40,17 @@ def newsd(id):
         return redirect(url_for('search',news_title=search_news))
     else:
         return render_template('news.html', title = title,technology = technology_news)
+
+@main.route('/news/<id>/<title>')
+def arti(title):
+    '''
+    View news page function that returns the news details page and its data
+    '''
+    article = get_arti(title)
+
+    title = 'Home - Welcome to The Article Details'
+
+    return render_template('descr.html', title = title,article = article)
 
 
 

@@ -12,40 +12,30 @@
   {% for arti in arti_results_list %}
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{arti.poster}}) no-repeat center center">
-        <img src="{{ arti.poster }}" alt="{{ arti.title }} poster" class="img-responsive">
+        <img src="{{ arti.urlToImage }}" height='150' alt="{{ arti.title }} poster" class="img-responsive">
       </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 news-details">
-        <h3><a href="/news/{{arti.content}}">{{ arti.title}}{{ arti.id}}</a></h3>
+        <h3><a href="/news/{{arti.title}}">{{ arti.title}}</a></h3>
         <p class="ratings"> <b>{{ arti.description }}</b> - <i>{{ arti.publishedAt}}</i> - </p>
       </div>
     </div>
-
-    <!-- <div class="">
-        <img src="{{ arti.poster }}" alt="{{ arti.title }} poster" class="img-responsive">
-        <li class="text-center">
-            <a href="/news/{{arti.content}}">{{ arti.title}}</a>
-        </li>
-    </div> -->
   {% endfor %}
-
 {% endmacro %}
 
-<!-- {% macro displayDescrList(arti) %}
-  {% for arti in arti %}
+{% macro displayDescrList(arti) %}
+  <!-- {% for arti in arti %} -->
     <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{arti.poster}}) no-repeat center center">
-        <img src="{{ arti.urlToImage }}" alt="{{ arti.title }} poster" class="img-responsive">
-      </div>
+      <img src="{{ arti.urlToImage }}" alt="{{ arti.title }} poster" class="img-responsive"
 
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 news-details">
-        <h3><a href="/news/{{arti.content}}">{{ arti.title}}{{ arti.id}}</a></h3>
+      <div class="news-details">
+        <h3>{{ arti.title}}</h3>
         <p class="ratings"> <b>{{ arti.description }}</b> - <i>{{ arti.publishedAt}}</i> - </p>
+        <p>{{ arti.author}}</p>
       </div>
     </div>
-  {% endfor %}
-
-{% endmacro %} -->
+  <!-- {% endfor %} -->
+{% endmacro %}
 
 <!-- {% macro displayReviews(review_list) %}
   {% for review in review_list %}
@@ -54,5 +44,4 @@
         <p> {{ review.review | truncate(30) }}</p>
     </div>
   {% endfor %}
-
 {% endmacro %} -->
