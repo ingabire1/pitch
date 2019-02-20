@@ -9,6 +9,17 @@ The News Highlight App will help the user to view/read the past popular news eit
 
 ## Setup/Installation Requirements
 
+* Go to you machine terminal
+* Install Python3.6 and its third party modules like flask
+* Write 'git clone https://github.com/Juru-10/News.git'
+OR
+* Go to https://github.com
+* Search for Juru-10
+* Go to Juru-10 repositories
+* Get the repository called News
+OR
+* Go to https://github.com/Juru-10/News.git
+OR
 * Install the Heroku CLI
 * Download and install the Heroku CLI.
 
