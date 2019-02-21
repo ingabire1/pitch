@@ -33,8 +33,7 @@ OR
 * $ cd news10
 
 ## link to it on Heroku
-https://git.heroku.com/news10.git
-or
+
 https://news10.herokuapp.com/
 
 ## Known Bugs
