@@ -65,7 +65,6 @@ def get_newsd(name):
     Function that gets the json response to our url request
     '''
     get_arti_url = 'https://newsapi.org/v2/everything?sources={}&apiKey=d51bd896c92448e786bb80dc54e08fca'.format(name)
-    # source='news.name'
     print(get_arti_url)
     with urllib.request.urlopen(get_arti_url) as url:
         get_arti_data = url.read()
@@ -101,32 +100,14 @@ def process_arti(arti_list):
         description = arti_item.get('description')
         publishedAt = arti_item.get('publishedAt')
         content = arti_item.get('content')
+        url = arti_item.get('url')
 
         # if poster:
-        arti_object = Arti(id,source,title,poster,description,publishedAt,content)
+        arti_object = Arti(id,source,title,poster,description,publishedAt,content,url)
         arti_results.append(arti_object)
 
     return arti_results
 
-# def get_arti(title):
-#     '''
-#     Function to get artile details
-#     '''
-#     get_arti_url = 'https://newsapi.org/v2/everything?sources={}&apiKey=d51bd896c92448e786bb80dc54e08fca'.format(title)
-#     print(get_arti_url)
-#     with urllib.request.urlopen(get_arti_url) as url:
-#         get_arti_data = url.read()
-#         get_arti_response = json.loads(get_arti_data)
-#
-#         arti_results_list = None
-#         # arti_results = None
-#
-#         if get_arti_response['articles']:
-#             arti_results_list = process_arti(get_arti_response['articles'])
-#             # arti_results_list
-#         print(arti_results_list)
-#
-#         return arti_results_list
 
 def search_news(news_title):
     search_news_url = 'https://newsapi.org/v2/sources?category&apiKey={}&query={}'.format(api_key,news_title)

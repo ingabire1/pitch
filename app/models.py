@@ -16,7 +16,7 @@ class Arti:
     News class to define Articles Objects
     '''
 
-    def __init__(self,id,name,title,poster,description,publishedAt,content):
+    def __init__(self,id,name,title,poster,description,publishedAt,content,url):
         self.id = id
         self.name = name
         self.title = title
@@ -24,6 +24,7 @@ class Arti:
         self.description = description
         self.publishedAt = publishedAt
         self.content = content
+        self.url = url
 
     # def save_review(self):
     #     Review.all_reviews.append(self)

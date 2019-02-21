@@ -12,18 +12,18 @@
   {% for arti in arti_results_list %}
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{arti.poster}}) no-repeat center center">
-        <img src="{{ arti.urlToImage }}" height='150' alt="{{ arti.title }} poster" class="img-responsive">
+        <img src="{{ arti.urlToImage }}" alt="{{ arti.title }} poster" class="img-responsive">
       </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 news-details">
-        <h3><a href="/news/{{arti.title}}">{{ arti.title}}</a></h3>
+        <h3><a href="{{arti.url}}">{{ arti.title}}</a></h3>
         <p class="ratings"> <b>{{ arti.description }}</b> - <i>{{ arti.publishedAt}}</i> - </p>
       </div>
     </div>
   {% endfor %}
 {% endmacro %}
 
-{% macro displayDescrList(arti) %}
+{% macro displayDescrList(article) %}
   <!-- {% for arti in arti %} -->
     <div class="row">
       <img src="{{ arti.urlToImage }}" alt="{{ arti.title }} poster" class="img-responsive"

@@ -1,7 +1,10 @@
+*{
+  background-color: gray;
+}
 img{
   background-repeat: no-repeat;
   background-size: cover;
-  height:150px;
+  margin-bottom: 20px;
 }
 #tec,#gen,#ent{
   border-radius: 5%;
@@ -15,4 +18,8 @@ img{
 }
 #ent{
   background-color: lightyellow;
+}
+#arti_list{
+  background-color: gray;
+  border-radius: 10%;
 }
