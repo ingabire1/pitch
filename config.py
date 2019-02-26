@@ -8,7 +8,7 @@ class Config:
     NEWS_API_ARTI_URL ='https://newsapi.org/v2/everything?sources={}&apiKey={}'
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:123456@localhost/news'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:123456@localhost/pitch'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #  email configurations
@@ -33,7 +33,7 @@ class ProdConfig(Config):
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:123456@localhost/news_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:123456@localhost/pitch_test'
 
 
 class DevConfig(Config):
@@ -43,7 +43,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:123456@localhost/news'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:123456@localhost/pitch'
     DEBUG = True
 
 config_options = {
